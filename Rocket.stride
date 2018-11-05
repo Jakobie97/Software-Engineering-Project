@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Rocket" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="count" value="0" value-java="0" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="speedRight" value="2" value-java="2" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="speedLeft" value="-2" value-java="-2" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body/>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Rocket wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.isKeyDown(&quot;up&quot;)" condition-java="Greenfoot.isKeyDown(&quot;up&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()-3)" expression-java="setLocation(getX(), getY() - 3)" enable="true"/>
+                        <blank/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;down&quot;)" condition-java="Greenfoot.isKeyDown(&quot;down&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()+3)" expression-java="setLocation(getX(), getY() + 3)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;right&quot;)" condition-java="Greenfoot.isKeyDown(&quot;right&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(speedRight)" expression-java="move(speedRight)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;left&quot;)" condition-java="Greenfoot.isKeyDown(&quot;left&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(speedLeft)" expression-java="move(speedLeft)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <call expression="EatSpeed()" expression-java="EatSpeed()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="EatSpeed" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="isTouching(SpeedBoost.class)" condition-java="isTouching(SpeedBoost.class)" enable="true">
+                    <ifStatements>
+                        <call expression="removeTouching(SpeedBoost.class)" expression-java="removeTouching(SpeedBoost.class)" enable="true"/>
+                        <assign dest="speedRight" dest-java="speedRight" src="speedRight+2" src-java="speedRight + 2" enable="true"/>
+                        <assign dest="speedLeft" dest-java="speedLeft" src="speedLeft-2" src-java="speedLeft - 2" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>
