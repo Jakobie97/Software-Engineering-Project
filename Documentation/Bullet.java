@@ -1,5 +1,5 @@
 import greenfoot.*;
-/* Hey this doesnt work*/
+
 public class Bullet {
    private int damage = 12;
    
