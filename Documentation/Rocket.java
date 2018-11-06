@@ -1,40 +1,40 @@
 import greenfoot.*;
-/* Hey this doesnt work*/
+
 public class Rocket {
    private int gunReloadTime;
    private int reloadDelay;
-   private int speed = 5;
+   //private int speed = 5;
    
    public Rocket() {
       gunReloadTime = 20;
    }
    
    public void act() {
-      leftRightCheck();
+      //leftRightCheck();
       powerUpCheck();
       gameEndCheck();
       fireCheck();
       reloadDelay++;
    }
    
-   private void leftRightCheck() {
-      if(Greenfoot.isKeyDown("left")) {
-         move();
-      }
-      if(Greenfoot.isKeyDown("right")) {
-         move();
-      }
-   }
+  // private void leftRightCheck() {
+     // if(Greenfoot.isKeyDown("left")) {
+     //    move();
+     // }
+     // if(Greenfoot.isKeyDown("right")) {
+     //    move();
+    //  }
+  // }
    
    private void fire() {
-      if(Greenfoot.isKeyDown("space")) {
+      
          if (reloadDelay <= gunReloadTime) {
             Bullet b = new Bullet();
             getWorld().addObject(b, getX(), getY());
             b.move();
             reloadDelay = 0;         
          }
-      }
+      
    }
    private void fireCheck() {
       if (Greenfoot.isKeyDown("space")) {
