@@ -1,25 +1,28 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
-import lang.stride.*;
-import java.util.*;
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
+ * Write a description of class Asteroid here.
  * 
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class Asteroid extends Actor
 {
-
+    private int score;
+    public Asteroid() {
+        score = 0;
+    }
     /**
-     * Act - do whatever the Asteroid wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the Asteroid wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    public void act() 
     {
         setLocation(getX(), getY() + 1);
-        if (isTouching(Rocket.class)) {
-            removeTouching(Rocket.class);
-            Greenfoot.stop();
-            
+        
+        if (getY() > getWorld().getHeight() - getImage().getHeight() / 2) {
+            getWorld().removeObject(this);
         }
         
-    }
+    }    
 }
