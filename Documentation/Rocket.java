@@ -27,11 +27,13 @@ public class Rocket {
    }
    
    private void fire() {
-      if (reloadDelay <= gunReloadTime) {
-         Bullet b = new Bullet(/*idk*/);
-         getWorld().addObject(b, getX(), getY());
-         b.move();
-         reloadDelay = 0;         
+      if(Greenfoot.isKeyDown("space")) {
+         if (reloadDelay <= gunReloadTime) {
+            Bullet b = new Bullet();
+            getWorld().addObject(b, getX(), getY());
+            b.move();
+            reloadDelay = 0;         
+         }
       }
    }
    private void fireCheck() {
